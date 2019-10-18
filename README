@@ -1,3 +1,5 @@
+WARNING: It might mess up already running Docker containers.
+
 1. Get Terraform:
 
 https://www.terraform.io/downloads.html
