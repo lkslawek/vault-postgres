@@ -1,5 +1,6 @@
 resource "docker_image" "postgres" {
   name = "postgres:12.0-alpine"
+  keep_locally = true
 }
 
 resource "random_string" "postgres_password" {

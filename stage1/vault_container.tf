@@ -1,5 +1,6 @@
 resource "docker_image" "vault" {
   name = "vault:1.2.3"
+  keep_locally = true
 }
 
 resource "random_string" "vault_root_token" {
