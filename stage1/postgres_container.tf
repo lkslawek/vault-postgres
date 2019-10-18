@@ -3,7 +3,7 @@ resource "docker_image" "postgres" {
   keep_locally = true
 }
 
-resource "random_string" "postgres_password" {
+resource "random_password" "postgres_password" {
   length = 64
   special = false
 }
@@ -21,10 +21,10 @@ resource "docker_container" "postgres" {
     external = 5432
   }
 
-  env = ["POSTGRES_PASSWORD=${random_string.postgres_password.result}"]
+  env = ["POSTGRES_PASSWORD=${random_password.postgres_password.result}"]
 }
 
 output "postgres_password" {
-  value = random_string.postgres_password.result
+  value = random_password.postgres_password.result
   sensitive = true
 }

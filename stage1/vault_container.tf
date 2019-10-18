@@ -3,7 +3,7 @@ resource "docker_image" "vault" {
   keep_locally = true
 }
 
-resource "random_string" "vault_root_token" {
+resource "random_password" "vault_root_token" {
   length = 64
   special = false
 }
@@ -21,10 +21,10 @@ resource "docker_container" "vault" {
     external = 8200
   }
 
-  env = ["VAULT_DEV_ROOT_TOKEN_ID=${random_string.vault_root_token.result}"]
+  env = ["VAULT_DEV_ROOT_TOKEN_ID=${random_password.vault_root_token.result}"]
 }
 
 output "vault_root_token" {
-  value = random_string.vault_root_token.result
+  value = random_password.vault_root_token.result
   sensitive = true
 }
