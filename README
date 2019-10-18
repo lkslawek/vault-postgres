@@ -12,3 +12,8 @@ $ terraform init
 $ terraform apply
 $ cd ../test
 $ ./test.sh
+
+3. For clean-up:
+
+$ cd stage1
+$ terraform destroy
