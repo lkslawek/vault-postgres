@@ -1,0 +1,14 @@
+1. Get Terraform:
+
+https://www.terraform.io/downloads.html
+
+2. Execute:
+
+$ cd stage1
+$ terraform init
+$ terraform apply
+$ cd ../stage2
+$ terraform init
+$ terraform apply
+$ cd ../test
+$ ./test.sh
